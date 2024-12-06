@@ -53,7 +53,7 @@
         // Retrieve cart from localStorage
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
         const cartItemsContainer = document.querySelector(".cart-items");
-        const totalPriceElement = document.querySelector(".total-price p strong");
+        const totalPriceElement = document.querySelector(".total-price strong"); // Corrected to target the <strong> tag
         const confirmOrderBtn = document.querySelector(".confirm-order-btn");
         const addressInput = document.querySelector("#address");
 
@@ -98,7 +98,7 @@
                 cart_items: cartItemsHtml,
                 total_price: totalPriceElement.textContent,
             };
-            
+
             // Send email via EmailJS
             emailjs.send("service_n34ia37", "template_jmn5xt5", emailData)
                 .then(() => {
@@ -111,8 +111,6 @@
                     alert("There was an error sending the email. Please try again.");
                 });
         });
-
-
     </script>
 </body>
 </html>
