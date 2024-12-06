@@ -21,7 +21,7 @@ body {
 
 /* Vertical Navigation Bar */
 .vertical-nav {
-    position: fixed;
+    position: fixed; /* Fixed position for better layout */
     top: 20px;
     left: 20px;
     width: 80px;
@@ -54,7 +54,7 @@ body {
 .vertical-heading {
     position: absolute;
     top: 50%;
-    left: 120px;
+    left: 100px;
     transform: translateY(-50%);
     font-family: 'Gill Sans', sans-serif;
     font-size: 3.5em;
@@ -67,50 +67,51 @@ body {
 /* Main Content */
 .main-content {
     display: flex;
-    justify-content: center; /* Center align the content horizontally */
+    justify-content: space-between;
     align-items: flex-start;
-    gap: 40px; /* Space between sections */
-    padding: 50px 0;
+    gap: 60px;
+    padding: 50px;
     width: 100%;
 }
 
-/* Left Section: Address and Cart Items */
-.left-section {
-    width: 60%; /* Ensure width to center align */
-    margin: 0 auto; /* Center align the left section */
+/* Cart and Address Section Styling */
+.cart-items, 
+#address, 
+.total-price, 
+.confirm-order-btn {
+    margin-left: 300px; /* Move all items to the right */
+    padding: 30px; /* Increased padding for more space between elements */
+    background-color: #fce4e4; /* Use navigation bar background color */
+    border-radius: 10px;
+    width: 70%; /* Adjust width for better alignment */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add some depth */
+    margin-bottom: 20px; /* Added vertical spacing between these elements */
 }
 
-/* Address Input */
+/* Address Title and Input */
+#address-title {
+    display: block; /* Ensure it’s treated as a block element */
+    margin-bottom: 10px; /* Spacing between the title and the address input */
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: left; /* Align the title above the input */
+}
+
 #address {
     width: 100%;
-    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 20px;
+    font-size: 1em;
+    color: #333;
+    height: 80px;
+    padding: 15px; /* Added padding inside the address field */
+    margin-bottom: 30px; /* Added vertical spacing below the address field */
 }
 
-/* Cart Items List */
-.cart-item-list {
-    list-style: none;
-    padding: 15px;
-    background-color: #fce4e4;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+/* Cart Items Styling */
+.cart-items p, .total-price p {
+    margin: 20px 0; /* Increased margin for more space between items */
     font-size: 1.2em;
-}
-
-/* Total Price Section */
-.total-price p {
-    font-size: 1.2em;
-    margin-top: 20px;
 }
 
 /* Confirm Order Button */
@@ -122,8 +123,7 @@ body {
     border-radius: 10px;
     font-size: 1.2em;
     cursor: pointer;
-    margin-top: 30px;
-    width: 100%; /* Button takes full width for alignment */
+    margin-top: 30px; /* Added more spacing above the button */
 }
 
 .confirm-order-btn:hover {
@@ -134,7 +134,7 @@ body {
 .right-section {
     flex: 1;
     text-align: center;
-    margin-left: 100px; /* Adjusted spacing for better alignment */
+    margin-left: 300px; /* Align with cart and address */
 }
 
 .main-image {
@@ -143,4 +143,21 @@ body {
     position: absolute;
     bottom: 1px; /* Move to the bottom of the section */
     right: 10px; /* Move slightly to the left */
+}
+
+/* Adjust List Items in Cart */
+ul.cart-item-list {
+    margin-left: 300px; /* Move the list to the right */
+    padding: 30px; /* Increased padding between elements */
+    background-color: #fce4e4; /* Use navigation bar's background color */
+    border-radius: 10px;
+    width: 70%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    margin-bottom: 30px; /* Added vertical spacing between cart items and other sections */
+}
+
+ul.cart-item-list li {
+    font-size: 1.2em;
+    margin: 20px 0; /* Increased margin for more spacing between items */
 }
