@@ -27,9 +27,14 @@
             <!-- Left Section: Address and Cart Items -->
             <div class="left-section">
                 <textarea id="address" name="address" placeholder="Enter your address here..."></textarea>
-                <ul class="cart-item-list"></ul>
+                <div class="cart-items">
+                    <p>ITEM 1: $10</p>
+                    <p>ITEM 2: $10</p>
+                    <p>ITEM 3: $10</p>
+                    <p>ITEM 4: $10</p>
+                </div>
                 <div class="total-price">
-                    <p><strong>TOTAL PRICE: $0</strong></p>
+                    <p><strong>TOTAL PRICE: $40</strong></p>
                 </div>
                 <button class="confirm-order-btn">CONFIRM ORDER</button>
             </div>
@@ -41,61 +46,86 @@
         </main>
     </div>
 
+    <!-- Move the EmailJS script to the bottom, right before closing body -->
+    <script type="module">
+        import emailjs from 'https://cdn.emailjs.com/dist/email.min.js';
+    </script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "J8ruAJ42CSDff3OJE",
+      });
+   })();
+</script>
+
     <script>
-        // Initialize cart and elements
+        // Initialize EmailJS (Use your actual EmailJS user ID)
+        emailjs.init("J8ruAJ42CSDff3OJE"); // Replace with your actual EmailJS user ID
+
+        // Retrieve cart from localStorage
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartItemList = document.querySelector(".cart-item-list");
-        const totalPriceElement = document.querySelector(".total-price p strong");
+        const cartItemsContainer = document.querySelector(".cart-items");
+        const totalPriceElement = document.querySelector(".total-price strong"); // Corrected to target the <strong> tag
         const confirmOrderBtn = document.querySelector(".confirm-order-btn");
         const addressInput = document.querySelector("#address");
 
-        function updateCartDisplay() {
-            cartItemList.innerHTML = ""; // Clear previous items
+        function displayCart() {
+            cartItemsContainer.innerHTML = "";  // Clear previous items
             let totalPrice = 0;
 
-            savedCart.forEach((item, index) => {
-                const listItem = document.createElement("li");
-                listItem.className = "cart-item";
+            // Loop through cart items and display them
+            savedCart.forEach(item => {
+                const itemElement = document.createElement("p");
+                itemElement.textContent = ${item.name} - $${item.price} x ${item.quantity};
+                cartItemsContainer.appendChild(itemElement);
 
-                // Item details
-                const itemText = document.createElement("span");
-                itemText.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
-                listItem.appendChild(itemText);
-
-                // Remove button
-                const removeButton = document.createElement("button");
-                removeButton.textContent = "Remove";
-                removeButton.className = "remove-btn";
-                removeButton.onclick = () => removeFromCart(index);
-                listItem.appendChild(removeButton);
-
-                cartItemList.appendChild(listItem);
                 totalPrice += item.price * item.quantity;
             });
 
-            totalPriceElement.textContent = `TOTAL PRICE: $${totalPrice.toFixed(2)}`;
+            // Display total price
+            totalPriceElement.textContent = TOTAL PRICE: $${totalPrice.toFixed(2)};
         }
 
-        function removeFromCart(index) {
-            savedCart.splice(index, 1); // Remove item from cart
-            localStorage.setItem("cart", JSON.stringify(savedCart)); // Update localStorage
-            updateCartDisplay(); // Refresh the cart display
-        }
+        // Call displayCart on page load
+        displayCart();
 
-        confirmOrderBtn.addEventListener("click", () => {
+        // Handle Confirm Order Button Click
+        confirmOrderBtn.addEventListener("click", function () {
             const address = addressInput.value.trim();
+
             if (!address) {
                 alert("Please enter your address.");
                 return;
             }
 
-            alert("Order confirmed!");
-            localStorage.removeItem("cart"); // Clear cart after order confirmation
-            window.location.href = "index.html";
-        });
+            // Prepare email data with dynamic content
+            const cartItemsHtml = savedCart.map(item => 
+                <li>${item.name} - $${item.price} x ${item.quantity}</li>
+            ).join("");  // Join items as list elements
 
-        // Display cart on load
-        updateCartDisplay();
+            const emailData = {
+                to_name: "Store Owner",
+                from_name: "Checkout Page",
+                address: address,
+                cart_items: cartItemsHtml,
+                total_price: totalPriceElement.textContent,
+            };
+
+            // Send email via EmailJS
+            emailjs.send("service_n34ia37", "template_jmn5xt5", emailData)
+                .then(() => {
+                    alert("Order confirmed! An email has been sent.");
+                    // Optionally, redirect to another page (e.g., order confirmation)
+                    window.location.href = "index.html"; // Add the desired URL
+                })
+                .catch(error => {
+                    console.error("Failed to send email:", error);
+                    alert("There was an error sending the email. Please try again.");
+                });
+        });
     </script>
 </body>
 </html>
