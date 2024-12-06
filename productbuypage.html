@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop - Products</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Avenir:wght@700&family=Gill+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Main Container -->
+<div class="container">
+    <!-- Vertical Navigation Bar -->
+    <nav class="vertical-nav">
+        <ul>
+            <li><a href="index.html" class="icon home">🏠</a></li>
+            <li><a href="#" class="icon products">🛒</a></li>
+            <li><a href="#" class="icon care">🌿</a></li>
+            <li><a href="#" class="icon contact">📞</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Vertical Heading -->
+        <div class="vertical-heading">ANNIVERSARIES</div>
+
+        <!-- Product Grid -->
+        <section class="product-grid">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="tulips.png" alt="Tulip Option 1" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>TULIP OPTION 1</h3>
+                    <p>$10 <span class="strike">$20</span> <span class="discount">-50%</span></p>
+                    <!-- Button with Link to Product Page -->
+                    <a href="productpage.html">
+                        <button class="btn buy-now">Buy Now</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="tulips.png" alt="Tulip Option 2" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>TULIP OPTION 2</h3>
+                    <p>$10 <span class="strike">$20</span> <span class="discount">-50%</span></p>
+                    <a href="productpage.html">
+                        <button class="btn buy-now">Buy Now</button>
+                    </a>
+                </div>
+            </div>
+            <!-- Additional Product Cards... -->
+             <!-- Product Card 3 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="tulips.png" alt="Tulip Option 2" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>TULIP OPTION 2</h3>
+                    <p>$10 <span class="strike">$20</span> <span class="discount">-50%</span></p>
+                    <a href="productpage.html">
+                        <button class="btn buy-now">Buy Now</button>
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="tulips.png" alt="Tulip Option 2" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>TULIP OPTION 2</h3>
+                    <p>$10 <span class="strike">$20</span> <span class="discount">-50%</span></p>
+                    <a href="productpage.html">
+                        <button class="btn buy-now">Buy Now</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+
+    <script>
+        // Toggle Filter Popup
+        const filterIcon = document.getElementById('filter-icon');
+        const filterPopup = document.getElementById('filter-popup');
+
+        filterIcon.addEventListener('click', () => {
+            filterPopup.classList.toggle('show');
+        });
+
+        document.getElementById('occasion-filter').addEventListener('change', function () {
+            document.querySelector('.vertical-heading').textContent = this.value.toUpperCase();
+        });
+    </script>
+</body>
+
+</html>

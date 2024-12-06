@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="style3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Avenir:wght@700&family=Gill+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Vertical Navigation Bar -->
+        <nav class="vertical-nav">
+            <ul>
+                <li><a href="index.html" class="icon home">🏠</a></li>
+                <li><a href="#" class="icon products">🛒</a></li>
+                <li><a href="#" class="icon care">🌿</a></li>
+                <li><a href="#" class="icon contact">📞</a></li>
+            </ul>
+        </nav>
+
+        <!-- Vertical Heading -->
+        <div class="vertical-heading">TULIPS</div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Image Section -->
+            <div class="product-images">
+                <img id="main-img" src="tulips.png" alt="Tulip Image" class="main-image">
+                <div class="thumbnails">
+                    <img src="tulips.png" alt="Thumbnail 1" onclick="changeImage(this)">
+                    <img src="tulips2.png" alt="Thumbnail 2" onclick="changeImage(this)">
+                    <img src="tulips3.png" alt="Thumbnail 3" onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <!-- Product Info Section -->
+            <div class="product-info">
+                <h1>Product Description</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt sem sed libero egestas, sit amet dignissim arcu luctus.</p>
+
+                <label for="quantity"><strong>Quantity:</strong></label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+
+                <label for="color"><strong>Colour:</strong></label>
+                <div class="color-options">
+                    <label><input type="checkbox" name="color" value="Red"> Red</label>
+                    <label><input type="checkbox" name="color" value="White"> White</label>
+                    <label><input type="checkbox" name="color" value="Yellow"> Yellow</label>
+                </div>
+
+                <label for="note"><strong>Add a Note:</strong></label>
+                <textarea id="note" name="note" placeholder="Write a personalized message..."></textarea>
+
+                <label for="size"><strong>Size:</strong></label>
+                <div class="size-options">
+                    <button class="size-btn" id="big" onclick="toggleSize(this)">Big</button>
+                    <button class="size-btn" id="small" onclick="toggleSize(this)">Small</button>
+                </div>
+
+                <button class="buy-now-btn" id="buyNowButton">Buy Now</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function changeImage(thumbnail) {
+            document.getElementById('main-img').src = thumbnail.src;
+        }
+
+        function toggleSize(button) {
+            document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        document.getElementById('main-img').addEventListener('click', function () {
+            this.classList.toggle('zoom');
+        });
+
+        document.getElementById("buyNowButton").addEventListener("click", () => {
+            const quantity = parseInt(document.getElementById("quantity").value);
+            const selectedColors = Array.from(document.querySelectorAll("input[name='color']:checked")).map(
+                (checkbox) => checkbox.value
+            );
+            const note = document.getElementById("note").value;
+            const selectedSize = document.querySelector(".size-btn.active")?.id || "Default";
+
+            const product = {
+                name: "Tulips",
+                price: 10,
+                quantity: quantity,
+                colors: selectedColors,
+                note: note,
+                size: selectedSize,
+            };
+
+            // Save product to cart in localStorage
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(product);
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Redirect to checkout page
+            window.location.href = "checkout.html";
+        });
+    </script>
+</body>
+</html>
