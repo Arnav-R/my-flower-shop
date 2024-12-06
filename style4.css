@@ -144,23 +144,6 @@ body {
     bottom: 1px; /* Move to the bottom of the section */
     right: 10px; /* Move slightly to the left */
 }
-
-/* Adjust List Items in Cart */
-ul.cart-item-list {
-    margin-left: 300px; /* Move the list to the right */
-    padding: 30px; /* Increased padding between elements */
-    background-color: #fce4e4; /* Use navigation bar's background color */
-    border-radius: 10px;
-    width: 70%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    margin-bottom: 30px; /* Added vertical spacing between cart items and other sections */
-}
-
-ul.cart-item-list li {
-    font-size: 1.2em;
-    margin: 20px 0; /* Increased margin for more spacing between items */
-}
 /* Remove Button */
 .remove-btn {
     background-color: #fce4e4; /* Match navigation bar color */
@@ -177,4 +160,21 @@ ul.cart-item-list li {
     background-color: #da5877;
     border-color: #da5877;
     color: white;
+}
+
+/* Adjust List Items in Cart */
+ul.cart-item-list {
+    margin-left: 300px; /* Move the list to the right */
+    padding: 30px; /* Increased padding between elements */
+    background-color: #fce4e4; /* Use navigation bar's background color */
+    border-radius: 10px;
+    width: 70%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    margin-bottom: 30px; /* Added vertical spacing between cart items and other sections */
+}
+
+ul.cart-item-list li {
+    font-size: 1.2em;
+    margin: 20px 0; /* Increased margin for more spacing between items */
 }
