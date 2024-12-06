@@ -72,7 +72,7 @@ ITEM 4: $10
     </script>
 
 <script>
-         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 const cartItemList = document.querySelector(".cart-item-list");
 const totalPriceElement = document.querySelector(".total-price strong");
         const confirmOrderBtn = document.querySelector(".confirm-order-btn");
