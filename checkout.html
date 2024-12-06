@@ -28,10 +28,24 @@
             <div class="left-section">
                 <textarea id="address" name="address" placeholder="Enter your address here..."></textarea>
                 <div class="cart-items">
-                    <p>ITEM 1: $10</p>
-                    <p>ITEM 2: $10</p>
-                    <p>ITEM 3: $10</p>
-                    <p>ITEM 4: $10</p>
+                    <ul class="cart-item-list">
+                        <li class="cart-item">
+                            ITEM 1: $10
+                            <button class="remove-btn" data-index="0">Remove</button>
+                        </li>
+                        <li class="cart-item">
+                            ITEM 2: $10
+                            <button class="remove-btn" data-index="1">Remove</button>
+                        </li>
+                        <li class="cart-item">
+                            ITEM 3: $10
+                            <button class="remove-btn" data-index="2">Remove</button>
+                        </li>
+                        <li class="cart-item">
+                            ITEM 4: $10
+                            <button class="remove-btn" data-index="3">Remove</button>
+                        </li>
+                    </ul>
                 </div>
                 <div class="total-price">
                     <p><strong>TOTAL PRICE: $40</strong></p>
@@ -46,86 +60,47 @@
         </main>
     </div>
 
-    <!-- Move the EmailJS script to the bottom, right before closing body -->
-    <script type="module">
-        import emailjs from 'https://cdn.emailjs.com/dist/email.min.js';
-    </script>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "J8ruAJ42CSDff3OJE",
-      });
-   })();
-</script>
-
     <script>
-        // Initialize EmailJS (Use your actual EmailJS user ID)
-        emailjs.init("J8ruAJ42CSDff3OJE"); // Replace with your actual EmailJS user ID
-
-        // Retrieve cart from localStorage
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartItemsContainer = document.querySelector(".cart-items");
-        const totalPriceElement = document.querySelector(".total-price strong"); // Corrected to target the <strong> tag
-        const confirmOrderBtn = document.querySelector(".confirm-order-btn");
-        const addressInput = document.querySelector("#address");
+        const cartItemList = document.querySelector(".cart-item-list");
+        const totalPriceElement = document.querySelector(".total-price strong");
 
-        function displayCart() {
-            cartItemsContainer.innerHTML = "";  // Clear previous items
+        // Update total price dynamically
+        function updateTotalPrice() {
             let totalPrice = 0;
-
-            // Loop through cart items and display them
             savedCart.forEach(item => {
-                const itemElement = document.createElement("p");
-                itemElement.textContent = ${item.name} - $${item.price} x ${item.quantity};
-                cartItemsContainer.appendChild(itemElement);
-
                 totalPrice += item.price * item.quantity;
             });
-
-            // Display total price
-            totalPriceElement.textContent = TOTAL PRICE: $${totalPrice.toFixed(2)};
+            totalPriceElement.textContent = `TOTAL PRICE: $${totalPrice.toFixed(2)}`;
         }
 
-        // Call displayCart on page load
-        displayCart();
-
-        // Handle Confirm Order Button Click
-        confirmOrderBtn.addEventListener("click", function () {
-            const address = addressInput.value.trim();
-
-            if (!address) {
-                alert("Please enter your address.");
-                return;
+        // Remove item from cart
+        cartItemList.addEventListener("click", (e) => {
+            if (e.target.classList.contains("remove-btn")) {
+                const index = e.target.getAttribute("data-index");
+                savedCart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(savedCart));
+                renderCartItems();
             }
-
-            // Prepare email data with dynamic content
-            const cartItemsHtml = savedCart.map(item => 
-                <li>${item.name} - $${item.price} x ${item.quantity}</li>
-            ).join("");  // Join items as list elements
-
-            const emailData = {
-                to_name: "Store Owner",
-                from_name: "Checkout Page",
-                address: address,
-                cart_items: cartItemsHtml,
-                total_price: totalPriceElement.textContent,
-            };
-
-            // Send email via EmailJS
-            emailjs.send("service_n34ia37", "template_jmn5xt5", emailData)
-                .then(() => {
-                    alert("Order confirmed! An email has been sent.");
-                    // Optionally, redirect to another page (e.g., order confirmation)
-                    window.location.href = "index.html"; // Add the desired URL
-                })
-                .catch(error => {
-                    console.error("Failed to send email:", error);
-                    alert("There was an error sending the email. Please try again.");
-                });
         });
+
+        // Render cart items
+        function renderCartItems() {
+            cartItemList.innerHTML = "";
+            savedCart.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.classList.add("cart-item");
+                listItem.innerHTML = `
+                    ${item.name} - $${item.price} x ${item.quantity}
+                    <button class="remove-btn" data-index="${index}">Remove</button>
+                `;
+                cartItemList.appendChild(listItem);
+            });
+            updateTotalPrice();
+        }
+
+        // Initial render
+        renderCartItems();
     </script>
 </body>
 </html>
