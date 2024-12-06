@@ -21,7 +21,7 @@ body {
 
 /* Vertical Navigation Bar */
 .vertical-nav {
-    position: absolute; /* Fixed position for better layout */
+    position: fixed; /* Fixed position for better layout */
     top: 20px;
     left: 20px;
     width: 80px;
@@ -75,7 +75,10 @@ body {
 }
 
 /* Cart and Address Section Styling */
-.cart-items, #address, .total-price, .confirm-order-btn {
+.cart-items, 
+#address, 
+.total-price, 
+.confirm-order-btn {
     margin-left: 300px; /* Move all items to the right */
     padding: 30px; /* Increased padding for more space between elements */
     background-color: #fce4e4; /* Use navigation bar background color */
