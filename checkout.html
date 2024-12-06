@@ -111,6 +111,16 @@
                     alert("There was an error sending the email. Please try again.");
                 });
         });
+        console.log("Email Data:", emailData);
+        const emailData = {
+    to_name: "Store Owner",
+    from_name: "Checkout Page",
+    to_email: "arnav.rayaprolu@oberoi-is.net", // Add the recipient's email address
+    address: address,
+    cart_items: cartItemsHtml,
+    total_price: totalPriceElement.textContent,
+};
+
     </script>
 </body>
 </html>
