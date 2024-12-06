@@ -89,7 +89,7 @@
             // Loop through cart items and display them
             savedCart.forEach(item => {
                 const itemElement = document.createElement("p");
-                itemElement.textContent = ${item.name} - $${item.price} x ${item.quantity};
+                itemElement.textContent = <li>${item.name} - $${item.price} x ${item.quantity}<li>;
                 cartItemsContainer.appendChild(itemElement);
 
                 totalPrice += item.price * item.quantity;
