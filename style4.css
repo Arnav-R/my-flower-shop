@@ -21,7 +21,7 @@ body {
 
 /* Vertical Navigation Bar */
 .vertical-nav {
-    position: fixed; /* Fixed position for better layout */
+    position: absolute; /* Fixed position for better layout */
     top: 20px;
     left: 20px;
     width: 80px;
