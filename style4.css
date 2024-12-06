@@ -21,7 +21,7 @@ body {
 
 /* Vertical Navigation Bar */
 .vertical-nav {
-    position: fixed; /* Fixed position for better layout */
+    position: fixed;
     top: 20px;
     left: 20px;
     width: 80px;
@@ -75,43 +75,51 @@ body {
 }
 
 /* Cart and Address Section Styling */
-.cart-items, 
-#address, 
-.total-price, 
-.confirm-order-btn {
-    margin-left: 300px; /* Move all items to the right */
-    padding: 30px; /* Increased padding for more space between elements */
-    background-color: #fce4e4; /* Use navigation bar background color */
-    border-radius: 10px;
-    width: 70%; /* Adjust width for better alignment */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add some depth */
-    margin-bottom: 20px; /* Added vertical spacing between these elements */
-}
-
-/* Address Title and Input */
-#address-title {
-    display: block; /* Ensure it’s treated as a block element */
-    margin-bottom: 10px; /* Spacing between the title and the address input */
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: left; /* Align the title above the input */
-}
-
 #address {
     width: 100%;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1em;
-    color: #333;
-    height: 80px;
-    padding: 15px; /* Added padding inside the address field */
-    margin-bottom: 30px; /* Added vertical spacing below the address field */
+    margin-bottom: 20px;
 }
 
-/* Cart Items Styling */
-.cart-items p, .total-price p {
-    margin: 20px 0; /* Increased margin for more space between items */
+.cart-item-list {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+    background-color: #fce4e4;
+    border-radius: 10px;
+    width: 70%;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
     font-size: 1.2em;
+}
+
+.remove-btn {
+    background-color: #f4a7a1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.remove-btn:hover {
+    background-color: #da5877;
+}
+
+/* Total Price Section */
+.total-price p {
+    font-size: 1.2em;
+    margin-top: 20px;
 }
 
 /* Confirm Order Button */
@@ -123,41 +131,9 @@ body {
     border-radius: 10px;
     font-size: 1.2em;
     cursor: pointer;
-    margin-top: 30px; /* Added more spacing above the button */
+    margin-top: 30px;
 }
 
 .confirm-order-btn:hover {
     background-color: #da5877;
-}
-
-/* Right Section (Product Image) */
-.right-section {
-    flex: 1;
-    text-align: center;
-    margin-left: 300px; /* Align with cart and address */
-}
-
-.main-image {
-    width: auto;
-    height: 70vh; /* Adjusted for better visibility */
-    position: absolute;
-    bottom: 1px; /* Move to the bottom of the section */
-    right: 10px; /* Move slightly to the left */
-}
-
-/* Adjust List Items in Cart */
-ul.cart-item-list {
-    margin-left: 300px; /* Move the list to the right */
-    padding: 30px; /* Increased padding between elements */
-    background-color: #fce4e4; /* Use navigation bar's background color */
-    border-radius: 10px;
-    width: 70%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    margin-bottom: 30px; /* Added vertical spacing between cart items and other sections */
-}
-
-ul.cart-item-list li {
-    font-size: 1.2em;
-    margin: 20px 0; /* Increased margin for more spacing between items */
 }
