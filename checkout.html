@@ -103,7 +103,7 @@
 
             // Prepare email data with dynamic content
             const cartItemsHtml = savedCart.map(item => 
-                `<li>${item.name} - $${item.price} x ${item.quantity}</li>`
+                <li>${item.name} - $${item.price} x ${item.quantity}</li>
             ).join("");  // Join items as list elements
 
             const emailData = {
