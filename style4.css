@@ -1,5 +1,5 @@
 /* General Reset */
-body, h1, h2, p, ul, li, button, img, input, textarea {
+body, h1, h2, p, ul, li, button, img, input, select, textarea {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,6 +19,7 @@ body {
     min-height: 100vh;
 }
 
+/* Vertical Navigation Bar */
 .vertical-nav {
     position: absolute;
     top: 20px;
@@ -62,8 +63,6 @@ body {
     writing-mode: vertical-rl;
     letter-spacing: 10px;
 }
-
-
 /* Cart Items Styling */
 .cart-item-list {
     list-style: none;
