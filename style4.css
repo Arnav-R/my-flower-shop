@@ -161,18 +161,3 @@ ul.cart-item-list li {
     font-size: 1.2em;
     margin: 20px 0; /* Increased margin for more spacing between items */
 }
-/* Remove Button */
-.remove-btn {
-    background-color: #da5877;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 5px 15px; /* Slight padding for size */
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s;
-}
-
-.remove-btn:hover {
-    background-color: #ff6f81;
-}
