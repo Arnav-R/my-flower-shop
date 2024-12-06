@@ -19,9 +19,8 @@ body {
     min-height: 100vh;
 }
 
-/* Vertical Navigation Bar */
 .vertical-nav {
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 20px;
     width: 80px;
@@ -33,6 +32,37 @@ body {
     border-radius: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
+
+.vertical-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical-nav li {
+    margin: 20px 0;
+}
+
+.vertical-nav a {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Vertical Heading */
+.vertical-heading {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    color: #333;
+    writing-mode: vertical-rl;
+    letter-spacing: 10px;
+}
+
 
 /* Cart Items Styling */
 .cart-item-list {
