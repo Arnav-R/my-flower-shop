@@ -1,5 +1,5 @@
 /* General Reset */
-body, h1, h2, p, ul, li, button, img, input, select, textarea {
+body, h1, h2, p, ul, li, button, img, input, textarea {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,68 +19,22 @@ body {
     min-height: 100vh;
 }
 
-/* Vertical Navigation Bar */
-.vertical-nav {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 80px;
-    height: calc(100% - 40px);
-    background-color: #fce4e4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.vertical-nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-}
-
-.vertical-nav li {
-    margin: 20px 0;
-}
-
-.vertical-nav a {
-    font-size: 24px;
-    color: #333;
-    text-decoration: none;
-}
-
-/* Vertical Heading */
-.vertical-heading {
-    position: absolute;
-    top: 50%;
-    left: 100px;
-    transform: translateY(-50%);
-    font-family: 'Gill Sans', sans-serif;
-    font-size: 3.5em;
-    text-transform: uppercase;
-    color: #333;
-    writing-mode: vertical-rl;
-    letter-spacing: 10px;
-}
-
 /* Cart Items Styling */
 ul.cart-item-list {
-.cart-item-list {
-list-style: none;
-padding: 15px;
-background-color: #fce4e4;
-border-radius: 10px;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-margin-bottom: 20px;
+    list-style: none;
+    padding: 15px;
+    background-color: #fce4e4;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .cart-item {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 10px;
-font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1.2em;
 }
 
 /* Remove Button */
@@ -88,37 +42,15 @@ font-size: 1.2em;
     background-color: #fce4e4; /* Match navigation bar color */
     color: #333;
     border: 2px solid #ccc;
-    background-color: #da5877;
-    color: white;
-    border: none;
-border-radius: 8px;
+    border-radius: 8px;
     padding: 5px 12px;
-    padding: 5px 15px; /* Slight padding for size */
-cursor: pointer;
+    cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-    font-size: 0.9em;
-    transition: background-color 0.3s;
 }
 
 .remove-btn:hover {
     background-color: #da5877;
     border-color: #da5877;
-    background-color: #ff6f81;
-}
-
-/* Confirm Order Button */
-.confirm-order-btn {
-    background-color: #f4a7a1;
-color: white;
-    padding: 15px 35px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.2em;
-    cursor: pointer;
-    margin-top: 30px;
-}
-
-.confirm-order-btn:hover {
-    background-color: #da5877;
+    color: white;
 }
