@@ -54,7 +54,7 @@ body {
 .vertical-heading {
     position: absolute;
     top: 50%;
-    left: 100px;
+    left: 120px;
     transform: translateY(-50%);
     font-family: 'Gill Sans', sans-serif;
     font-size: 3.5em;
@@ -67,14 +67,19 @@ body {
 /* Main Content */
 .main-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: 60px;
-    padding: 50px;
+    gap: 40px; /* Space between sections */
+    padding: 50px 0;
     width: 100%;
 }
 
 /* Cart and Address Section Styling */
+.left-section {
+    margin-left: 300px; /* Adjusted for proper alignment */
+    width: 60%; /* Ensure the cart section doesn't overlap */
+}
+
 #address {
     width: 100%;
     padding: 15px;
@@ -89,7 +94,8 @@ body {
     padding: 0;
     background-color: #fce4e4;
     border-radius: 10px;
-    width: 70%;
+    width: 90%; /* Adjust width for better alignment */
+    margin-right: auto; /* Ensure it aligns to the right */
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -136,4 +142,19 @@ body {
 
 .confirm-order-btn:hover {
     background-color: #da5877;
+}
+
+/* Right Section (Product Image) */
+.right-section {
+    flex: 1;
+    text-align: center;
+    margin-left: 100px; /* Adjusted spacing for better alignment */
+}
+
+.main-image {
+    width: auto;
+    height: 70vh;
+    position: absolute;
+    bottom: 1px;
+    right: 10px;
 }
