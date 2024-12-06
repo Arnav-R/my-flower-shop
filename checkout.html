@@ -73,7 +73,6 @@ ITEM 4: $10
 
 <script>
          const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 const cartItemList = document.querySelector(".cart-item-list");
 const totalPriceElement = document.querySelector(".total-price strong");
         const confirmOrderBtn = document.querySelector(".confirm-order-btn");
@@ -155,8 +154,7 @@ updateTotalPrice();
         // Initial render
 renderCartItems();
 </script>
-    <script>
-        <script>
+<script>
 // Initialize EmailJS (Use your actual EmailJS user ID)
 emailjs.init("J8ruAJ42CSDff3OJE"); // Replace with your actual EmailJS user ID
 
