@@ -98,9 +98,10 @@
                 cart_items: cartItemsHtml,
                 total_price: totalPriceElement.textContent,
             };
-            console.log("Email Data:", emailData);
+            
             // Send email via EmailJS
             emailjs.send("service_n34ia37", "template_jmn5xt5", emailData)
+                console.log("Email Data:", emailData);
                 .then(() => {
                     alert("Order confirmed! An email has been sent.");
                     // Optionally, redirect to another page (e.g., order confirmation)
