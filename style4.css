@@ -67,19 +67,20 @@ body {
 /* Main Content */
 .main-content {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center; /* Center align the content horizontally */
     align-items: flex-start;
     gap: 40px; /* Space between sections */
     padding: 50px 0;
     width: 100%;
 }
 
-/* Cart and Address Section Styling */
+/* Left Section: Address and Cart Items */
 .left-section {
-    margin-left: 300px; /* Adjusted for proper alignment */
-    width: 60%; /* Ensure the cart section doesn't overlap */
+    width: 60%; /* Ensure width to center align */
+    margin: 0 auto; /* Center align the left section */
 }
 
+/* Address Input */
 #address {
     width: 100%;
     padding: 15px;
@@ -88,16 +89,14 @@ body {
     margin-bottom: 20px;
 }
 
+/* Cart Items List */
 .cart-item-list {
     list-style: none;
-    margin-left: 0;
-    padding: 0;
+    padding: 15px;
     background-color: #fce4e4;
     border-radius: 10px;
-    width: 90%; /* Adjust width for better alignment */
-    margin-right: auto; /* Ensure it aligns to the right */
-    padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .cart-item {
@@ -106,20 +105,6 @@ body {
     align-items: center;
     margin-bottom: 10px;
     font-size: 1.2em;
-}
-
-.remove-btn {
-    background-color: #f4a7a1;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 0.9em;
-}
-
-.remove-btn:hover {
-    background-color: #da5877;
 }
 
 /* Total Price Section */
@@ -138,6 +123,7 @@ body {
     font-size: 1.2em;
     cursor: pointer;
     margin-top: 30px;
+    width: 100%; /* Button takes full width for alignment */
 }
 
 .confirm-order-btn:hover {
@@ -153,8 +139,8 @@ body {
 
 .main-image {
     width: auto;
-    height: 70vh;
+    height: 70vh; /* Adjusted for better visibility */
     position: absolute;
-    bottom: 1px;
-    right: 10px;
+    bottom: 1px; /* Move to the bottom of the section */
+    right: 10px; /* Move slightly to the left */
 }
